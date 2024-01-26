@@ -6,11 +6,23 @@ spring:
     password: pass123
     url: jdbc:mysql://localhost:3306/login_system
 
+#https://www.baeldung.com/spring-boot-data-sql-and-schema-sql
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
+    repositories:
+      bootstrap-mode: default
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
 logging:
   level:
     org:
     springframework:
       security: DEBUG
+
+app:
+  jwt-secret: daf66e01593f61a15b857cf433aae03a005812b31234e149036bcc8dee755dbb
+  jwt-expiration-milliseconds: 604800000
